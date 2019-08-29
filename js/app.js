@@ -1,21 +1,5 @@
 (function (Vue) { //表示依赖了全局的Vue
-	const items = [{
-			id: 1, //	主键ID
-			content: "vue.js", //输入的内容
-			completed: false, //是否完成
-		},
-		{
-			id: 2, //	主键ID
-			content: "css", //输入的内容
-			completed: false, //是否完成
-		},
-		{
-			id: 3, //	主键ID
-			content: "python", //输入的内容
-			completed: false, //是否完成
-		}
-	]
-
+	
 	const STORAGE_KEY = "items-vuejs"
 
 	//进行本地保存和读取数据
