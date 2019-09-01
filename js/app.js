@@ -1,15 +1,15 @@
 (function (Vue) { //表示依赖了全局的Vue
-	
+
 	const STORAGE_KEY = "items-vuejs"
 
 	//进行本地保存和读取数据
 	const itemStorage = {
 		//获取数据
-		fetch: function() {
-			return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]') 
+		fetch: function () {
+			return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
 		},
 		//保存数据
-		save: function(items) {
+		save: function (items) {
 			localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
 		}
 	}
@@ -28,17 +28,17 @@
 	})
 	var app = new Vue({
 		el: "#todoapp",
-		data: { 
-			items:itemStorage.fetch(),
+		data: {
+			items: itemStorage.fetch(),
 			currentItem: null,
 			filterStatus: 'all'
 		},
 		watch: {
 			// 监听任务项，用于数据本地持久化
 			// deep:true深度监听对象内部属性
-			items:{
-				deep:true,
-				handler(newItems,oldItems){
+			items: {
+				deep: true,
+				handler(newItems, oldItems) {
 					itemStorage.save(newItems)
 				}
 			}
@@ -127,7 +127,7 @@
 	//记得是写在Vue实例外面的
 	window.onhashchange = function () {
 		//获取路由的哈希值，不为零直接返回，为零返回all
-		const hash = window.location.hash.substr(2)||'all'
+		const hash = window.location.hash.substr(2) || 'all'
 		app.filterStatus = hash
 	}
 
